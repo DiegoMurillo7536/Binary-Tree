@@ -9,5 +9,7 @@ def main():
     for value in values:
         arbol.insertar(value)
     arbol.recorrer_inorden()
+    arbol.recorrer_nodos_con_dos_hijos()
+    arbol.recorrer_nodos_almenos_con_un_hijo()
 
 main()
