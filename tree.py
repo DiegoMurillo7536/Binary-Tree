@@ -97,11 +97,9 @@ class ArbolBinario:
         elementos = []
         self._recorrer_preorden_recursivo_con_almenos_un_hijo_par(self.root, elementos)
         print(f"Nodos con al menos un hijo par: {elementos}")
-        return elementos
+        return elementos        
 
-    def _recorrer_preorden_recursivo_con_almenos_un_hijo_par(
-        self, actual_node, elementos
-    ):
+    def _recorrer_preorden_recursivo_con_almenos_un_hijo_par(self, actual_node, elementos):
         if actual_node:
             # Aquí chequeamos si el nodo actual tiene dos hijos
             if actual_node.left:
