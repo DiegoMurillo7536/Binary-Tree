@@ -25,8 +25,3 @@ def main():
 
 
 main()
-
-"""Output:
-Ingresa un número que desees buscar:7
-El valor 10 fue encontrado y este fue el camino antes de encontrar el valor buscado [8, 6, 7]
-"""
