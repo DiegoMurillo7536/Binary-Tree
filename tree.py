@@ -81,35 +81,27 @@ class ArbolBinario:
 
     def _recorrer_preorden_recursivo_dos_hijos(self, actual_node, elementos):
       if actual_node:
-        # Aquí chequeamos si el nodo actual tiene dos hijos
         if actual_node.left and actual_node.right:
             elementos.append(actual_node.value)
-            
-            # Llamamos recursivamente para recorrer el subárbol izquierdo
             self._recorrer_preorden_recursivo_dos_hijos(actual_node.left, elementos)
-            
-            # Llamamos recursivamente para recorrer el subárbol derecho
             self._recorrer_preorden_recursivo_dos_hijos(actual_node.right, elementos)
            
 
     def recorrer_nodos_almenos_con_un_hijo(self):
         elementos = []
         self._recorrer_preorden_recursivo_con_almenos_un_hijo(self.root, elementos)
-        print(f"Nodos con al menos un hijo: {elementos}")
-        for i in range(len(elementos)):
-            if elementos[i] % 2 == 0:
-                print (f"El numero {elementos[i]} es par")
+        print(f"Nodos con al menos un hijo par: {elementos}")
         return elementos        
 
     
     def _recorrer_preorden_recursivo_con_almenos_un_hijo(self, actual_node, elementos):
       if actual_node:
-        # Aquí chequeamos si el nodo actual tiene dos hijos
-        if actual_node.left or actual_node.right:
-            elementos.append(actual_node.value)
-            
-            # Llamamos recursivamente para recorrer el subárbol izquierdo
+        if actual_node.left:
+            if actual_node.left.value % 2 == 0:
+                elementos.append(actual_node.value)
             self._recorrer_preorden_recursivo_con_almenos_un_hijo(actual_node.left, elementos)
-            
-            # Llamamos recursivamente para recorrer el subárbol derecho
+        if actual_node.right :
+            if actual_node.right.value % 2 == 0:
+                elementos.append(actual_node.value)
             self._recorrer_preorden_recursivo_con_almenos_un_hijo(actual_node.right, elementos)
+
