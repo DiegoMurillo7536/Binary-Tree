@@ -21,3 +21,16 @@ def main():
     
     arbol.encontrar_camino(valor_a_encontrar)
 main()
+
+"""
+Ingresa la cantidad de datos aleatorios a ingresar dentro de la lista:10
+Valores que se van a usar en el arbol binario [8, 6, 10, 6, 1, 7, 8, 5, 5, 7
+El valor 6 ya está en el árbol.
+El valor 8 ya está en el árbol.
+El valor 5 ya está en el árbol.
+El valor 7 ya está en el árbol.
+ Árbol sin números repetidos [1, 5, 6, 7, 8, 10]
+Nodos con dos hijos: [8, 6]
+Nodos con al menos un hijo par: [8]
+
+"""
