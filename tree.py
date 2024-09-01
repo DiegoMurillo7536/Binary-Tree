@@ -23,7 +23,7 @@ class ArbolBinario:
             else:
                 self._insertar_recursivo(value, actual_node.right)
         elif value == actual_node.value:
-                print(f"El valor {value} ya está en el árbol.")
+            print(f"El valor {value} ya está en el árbol.")
 
     def buscar(self, value):
         return self._buscar_recursivo(value, self.root)
@@ -80,17 +80,16 @@ class ArbolBinario:
         return elementos
 
     def _recorrer_preorden_recursivo_dos_hijos(self, actual_node, elementos):
-      if actual_node:
-        # Aquí chequeamos si el nodo actual tiene dos hijos
-        if actual_node.left and actual_node.right:
-            elementos.append(actual_node.value)
-            
-            # Llamamos recursivamente para recorrer el subárbol izquierdo
-            self._recorrer_preorden_recursivo_dos_hijos(actual_node.left, elementos)
-            
-            # Llamamos recursivamente para recorrer el subárbol derecho
-            self._recorrer_preorden_recursivo_dos_hijos(actual_node.right, elementos)
-           
+        if actual_node:
+            # Aquí chequeamos si el nodo actual tiene dos hijos
+            if actual_node.left and actual_node.right:
+                elementos.append(actual_node.value)
+
+                # Llamamos recursivamente para recorrer el subárbol izquierdo
+                self._recorrer_preorden_recursivo_dos_hijos(actual_node.left, elementos)
+
+                # Llamamos recursivamente para recorrer el subárbol derecho
+                self._recorrer_preorden_recursivo_dos_hijos(actual_node.right, elementos)
 
     def recorrer_nodos_almenos_con_un_hijo(self):
         elementos = []
@@ -101,15 +100,34 @@ class ArbolBinario:
                 print (f"El numero {elementos[i]} es par")
         return elementos        
 
-    
     def _recorrer_preorden_recursivo_con_almenos_un_hijo(self, actual_node, elementos):
-      if actual_node:
-        # Aquí chequeamos si el nodo actual tiene dos hijos
-        if actual_node.left or actual_node.right:
-            elementos.append(actual_node.value)
-            
-            # Llamamos recursivamente para recorrer el subárbol izquierdo
-            self._recorrer_preorden_recursivo_con_almenos_un_hijo(actual_node.left, elementos)
-            
-            # Llamamos recursivamente para recorrer el subárbol derecho
-            self._recorrer_preorden_recursivo_con_almenos_un_hijo(actual_node.right, elementos)
+        if actual_node:
+            # Aquí chequeamos si el nodo actual tiene dos hijos
+            if actual_node.left or actual_node.right:
+                elementos.append(actual_node.value)
+
+                # Llamamos recursivamente para recorrer el subárbol izquierdo
+                self._recorrer_preorden_recursivo_con_almenos_un_hijo(actual_node.left, elementos)
+
+                # Llamamos recursivamente para recorrer el subárbol derecho
+                self._recorrer_preorden_recursivo_con_almenos_un_hijo(actual_node.right, elementos)
+
+    def encontrar_camino(self, valor_buscado):
+        camino = []
+        if self._encontrar_camino_recursivo(self.root, valor_buscado, camino):
+            return camino
+        else:
+            return "El nodo no existe"
+
+    def _encontrar_camino_recursivo(self, actual_node,valor_buscado, camino):
+        if actual_node is None:
+            return False
+        camino.append(actual_node.value)
+        if actual_node.value == valor_buscado:
+            print(f"El valor {valor_buscado} fue encontrado y este fue el camino antes de encontrar el valor buscado {camino}")
+            return True
+        if (self._encontrar_camino_recursivo(actual_node.left, valor_buscado, camino) or
+            self._encontrar_camino_recursivo(actual_node.right, valor_buscado, camino)):
+            return True
+        camino.pop()
+        return False
