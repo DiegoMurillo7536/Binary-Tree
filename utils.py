@@ -12,6 +12,6 @@ def insert_numbers_in_list() -> list:
     return numbers
 
 def insert_number_by_user_to_search() -> int:
-    number_by_user = int(input("Ingresa un número que desees buscar"))
+    number_by_user = int(input("Ingresa un número que desees buscar:"))
     
     return number_by_user
